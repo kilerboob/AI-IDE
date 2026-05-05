@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "hooks": {
+    "task.new": {
+      "description": "Triggered when a new task is created",
+      "actions": [
+        "create research stub at .memory-bank/research/current-task.md",
+        "log task start in .memory-bank/changelog.md"
+      ]
+    },
+    "task.guard": {
+      "description": "Triggered before any code changes are applied",
+      "actions": [
+        "run ai_guard.py to validate research gate",
+        "verify allowed_files list is present",
+        "abort if validation fails"
+      ]
+    },
+    "task.report": {
+      "description": "Triggered when a task is completed and a report is generated",
+      "actions": [
+        "write report to .memory-bank/reports/<timestamp>-<task-name>.md",
+        "update .memory-bank/changelog.md"
+      ]
+    },
+    "task.memory": {
+      "description": "Triggered to absorb a completed report into long-term memory",
+      "actions": [
+        "read report from .memory-bank/reports/",
+        "update .memory-bank/project.md, roadmap.md, decisions.md, context.md",
+        "mark report as imported in .memory-bank/import-ledger.json"
+      ]
+    },
+    "pre_commit": {
+      "description": "Future hook: validate diff before committing (not yet fully implemented)",
+      "actions": [
+        "run ai_guard.py --diff"
+      ],
+      "status": "prepared_not_active"
+    }
+  }
+}
