@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "rules": [
+    {
+      "id": "R001",
+      "name": "research_before_code",
+      "description": "No code changes allowed without a completed research file at .memory-bank/research/current-task.md",
+      "enforced_by": "ai_guard.py",
+      "severity": "error"
+    },
+    {
+      "id": "R002",
+      "name": "allowed_files_only",
+      "description": "Code changes must only touch files listed in .memory-bank/research/current-task.md under 'allowed_files'",
+      "enforced_by": "ai_guard.py",
+      "severity": "error"
+    },
+    {
+      "id": "R003",
+      "name": "no_push_to_main",
+      "description": "Direct git push to main branch is forbidden",
+      "enforced_by": "ai_guard.py",
+      "severity": "error"
+    },
+    {
+      "id": "R004",
+      "name": "no_windows_paths",
+      "description": "Windows-style paths (e.g. C:\\\\Users\\\\) must not appear in any file",
+      "enforced_by": "ai_guard.py",
+      "severity": "error"
+    },
+    {
+      "id": "R005",
+      "name": "project_scoped_memory",
+      "description": "Memory files must live inside .memory-bank/ and must not reference external paths",
+      "enforced_by": "ai_guard.py",
+      "severity": "error"
+    }
+  ]
+}

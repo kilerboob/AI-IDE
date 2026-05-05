@@ -1,0 +1,57 @@
+{
+  "version": "1.0",
+  "agents": {
+    "research": {
+      "description": "Investigates options, selects a solution, and documents findings before coding begins",
+      "skills": [
+        "analyse requirements",
+        "compare implementation options",
+        "select best solution",
+        "define allowed_files",
+        "write research document"
+      ],
+      "output": ".memory-bank/research/current-task.md"
+    },
+    "guard": {
+      "description": "Validates that safety rules are satisfied before code changes proceed",
+      "skills": [
+        "check research gate",
+        "validate allowed_files list",
+        "detect Windows paths",
+        "prevent push to main",
+        "enforce project-scoped memory"
+      ],
+      "output": "pass / fail with reason"
+    },
+    "coder": {
+      "description": "Implements code changes that are within the allowed_files list",
+      "skills": [
+        "read research document",
+        "implement selected solution",
+        "write clean, minimal code",
+        "respect file boundaries"
+      ],
+      "output": "modified source files"
+    },
+    "qa": {
+      "description": "Verifies correctness and completeness of implemented changes",
+      "skills": [
+        "run existing tests",
+        "check for regressions",
+        "verify research goals are met",
+        "flag unresolved issues"
+      ],
+      "output": "QA summary in task report"
+    },
+    "memory": {
+      "description": "Reads task reports and updates long-term memory files",
+      "skills": [
+        "parse task reports",
+        "update project.md, roadmap.md, decisions.md, context.md",
+        "deduplicate via import-ledger.json",
+        "summarise changes into changelog.md"
+      ],
+      "output": "updated .memory-bank/ files"
+    }
+  }
+}
